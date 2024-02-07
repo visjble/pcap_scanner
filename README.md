@@ -1,10 +1,11 @@
 PCAP Analysis Script with Scapy
-This Python script leverages the Scapy module to analyze PCAP (Packet Capture) files for potential security threats. It's designed to perform an initial "sanity check" on network traffic captured over a period, such as overnight ring buffer captures. The script examines both binary signatures indicative of executable file formats and specific byte-encoded text strings that might signal malicious scripts or commands.
+This Python script utilizes the Scapy module to delve into PCAP (Packet Capture) files, uncovering potential security threats within. Tailored for an initial "sanity check" on network traffic—accumulated through ring buffer captures over time—it adeptly parses through both encrypted and unencrypted data. In addition to identifying binary signatures characteristic of executable file formats, the script adeptly extracts RDS sequences from encrypted traffic and scans for specific byte-encoded text strings, pinpointing potential malicious scripts or commands. 
 
 Features
 Binary Signature Detection: Searches for signatures like MZ (PE files), PK (ZIP archives), ELF (Unix/Linux executables), and more to identify different types of data within network traffic.
 Text String Search: Scans for specific strings within packet payloads, such as batch file commands (@echo off, rem ), PowerShell (powershell.exe), and more, which might indicate suspicious activity.
 Flexible Analysis: Can be run against individual PCAP files or an entire directory of files for batch analysis.
+RDS sequences: Extracts and analize from encrypted traffic
 Exclusion Patterns: Incorporates regex patterns to exclude known benign domains and other irrelevant data from the analysis to reduce false positives.
 Usage
 Clone the repository or download the script.
